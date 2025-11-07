@@ -1,0 +1,31 @@
+[package]
+name = "sqlx-transaction-manager"
+version = "0.1.0"
+edition = "2021"
+authors = ["Akira Kano <akira.kano1101@gmail.com>"]
+description = "A type-safe transaction management wrapper for SQLx with automatic commit/rollback"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/kano1101/sqlx-transaction-manager"
+documentation = "https://docs.rs/sqlx-transaction-manager"
+homepage = "https://github.com/kano1101/sqlx-transaction-manager"
+keywords = ["sqlx", "database", "mysql", "transaction", "async"]
+categories = ["database"]
+readme = "README.md"
+
+[dependencies]
+sqlx = { version = "0.8", default-features = false, features = ["mysql"] }
+thiserror = "2.0"
+
+[dev-dependencies]
+tokio = { version = "1.42", features = ["full"] }
+sqlx = { version = "0.8", features = ["mysql", "runtime-tokio"] }
+dotenvy = "0.15"
+anyhow = "1.0"
+
+[[example]]
+name = "basic"
+path = "examples/basic.rs"
+
+[[example]]
+name = "nested"
+path = "examples/nested.rs"
