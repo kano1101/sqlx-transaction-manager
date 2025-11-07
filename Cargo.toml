@@ -1,6 +1,6 @@
 [package]
 name = "sqlx-transaction-manager"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Akira Kano <akira.kano1101@gmail.com>"]
 description = "A type-safe transaction management wrapper for SQLx with automatic commit/rollback"

@@ -8,6 +8,10 @@ pub enum Error {
     /// Transaction has already been consumed (committed or rolled back)
     #[error("Transaction has already been consumed")]
     AlreadyConsumed,
+
+    /// Generic error message for compatibility
+    #[error("{0}")]
+    Other(String),
 }
 
 /// Result type alias for transaction operations
