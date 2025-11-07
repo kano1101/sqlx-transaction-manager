@@ -221,9 +221,17 @@ pub mod context;
 pub mod error;
 pub mod executor;
 
+#[cfg(feature = "anyhow")]
+pub mod anyhow_compat;
+
 pub use context::TransactionContext;
 pub use error::{Error, Result};
+
+#[cfg(not(feature = "anyhow"))]
 pub use executor::{with_nested_transaction, with_transaction};
+
+#[cfg(feature = "anyhow")]
+pub use anyhow_compat::{with_transaction_anyhow as with_transaction, with_nested_transaction_anyhow as with_nested_transaction};
 
 /// Convenience re-exports for common use cases
 pub mod prelude {
